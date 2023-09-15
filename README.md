@@ -21,8 +21,10 @@ FavShop is a web application that allows users to like products and view a list 
     git clone https://github.com/yogi-dekanata/product-like.git
     ```
 
+2. [Docker](https://docs.docker.com/get-docker/) version 20
 
-2. Build the Docker containers.
+
+3. Build the Docker containers.
     ```sh
     docker-compose build
     ```
