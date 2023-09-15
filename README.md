@@ -31,14 +31,14 @@ FavShop is a web application that allows users to like products and view a list 
 
 ## Database Setup
 
-1. Migrate the database to initialize the schema and tables.
+4. Migrate the database to initialize the schema and tables.
     ```sh
     docker-compose run web python manage.py migrate
     ```
 
 ## Running the App
 
-1. Run the application.
+5. Run the application.
     ```sh
     docker-compose up
     ```
