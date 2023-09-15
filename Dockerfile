@@ -1,23 +1,24 @@
-# Gunakan image resmi Python
+# Use the official Python image
 FROM python:3.9-slim
 
-# Atur variabel lingkungan
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Instal dependensi yang diperlukan
+# Install necessary dependencies
 RUN apt-get update && \
     apt-get install -y gcc python3-dev libpq-dev
 
-# Pasang dependensi
+# Upgrade pip and install dependencies
 RUN pip install --upgrade pip
 COPY requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 
-# Set direktori kerja di container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy seluruh proyek ke direktori kerja container
+# Copy the entire project into the container's working directory
 COPY . /app/
 
+# Define the command to run the application using Gunicorn
 CMD ["gunicorn", "FavShop.wsgi:application", "--bind", "0.0.0.0:8000"]
